@@ -1,0 +1,7 @@
+<div class="overlay" [style.width.px]="sizeSettings.sizes[sizeSettings.selectedSizeIndex].width" [style.height.px]="sizeSettings.sizes[sizeSettings.selectedSizeIndex].height" [hidden]="imageLayerSettings.isGraphicHidden">
+    <div class="overlay-bounds" *ngIf="imageLayerSettings.selectedFile" appMoveClampedToParent [style.width.px]="imageLayerSettings.width" [style.height.px]="imageLayerSettings.height" [ngClass]="{ selected: isSelected }" (mousedown)="onSelect()">
+        <div class="layer" [style.width.px]="imageLayerSettings.width" [style.height.px]="imageLayerSettings.height"  [ngStyle]="{'background-image': 'url(' + imageLayerSettings.selectedFile.url + ')', 'background-size': imageLayerSettings.width + 'px'}">
+        </div>
+    </div>
+</div>
+
