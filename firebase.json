@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/poster-create",
+    "public": "dist\\poster-create",
     "ignore": [
       "firebase.json",
       "**/.*",

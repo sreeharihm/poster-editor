@@ -50,8 +50,7 @@ export class MainComponent implements OnInit {
                     { uniqueId: 1, type: 'Footer Copy', text: "Footer copy", fontIndex: 0, colorIndex: 0, alignIndex: 2, sizeIndex: 0, isBold: false, isItalic: false, isSelected: false },                 
                 ],                
                 layers:[
-                    {layerId:0, isGraphicHidden: false,selectedFile: null,height: 120, width: 120},
-                    {layerId:1, isGraphicHidden: false,selectedFile: null,height: 120, width: 120},
+                    {layerId:0, isGraphicHidden: false,selectedFile: null,height: 120, width: 120}
                 ]
             }, {
                 url: "../assets/img/justlistedfour.png",

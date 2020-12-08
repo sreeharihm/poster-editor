@@ -38,16 +38,17 @@ export class ImageLayerComponent {
 			reader.onload = (e) => {
 				let url = (<FileReader>e.target).result;
 				let file = { url: url, name: 'Uploaded Image' };
-				/* const img= new Image();
+				const img= new Image();
 				img.src = e.target.result as string;
 				img.onload = (e: any) => {
 					this.imageLayerSettings.height =e.path[0].height;
-					this.imageLayerSettings.width = e.path[0].width;
-				} */
+					this.imageLayerSettings.width = e.path[0].width;					
+					this.settings.images[this.settings.selectedImageUniqueId].layers[index].height =e.path[0].height;
+					this.settings.images[this.settings.selectedImageUniqueId].layers[index].height =e.path[0].height;
+				}
 				this.imageLayerSettings.selectedFile = file;
 				this.settings.images[this.settings.selectedImageUniqueId].layers[index].selectedFile = file;
 				this.settings.selectedLayerUniqueId = index;
-				debugger;
 				this.imageLayerSettingsChange.emit(this.imageLayerSettings);
 			};
 			reader.readAsDataURL($event.srcElement.files[0]);
