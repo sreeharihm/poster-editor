@@ -11,7 +11,7 @@ import { EditableTextComponent } from '../editable-text/editable-text.component'
 export class EditTextComponent implements OnInit {
 
 	@Input() textSettings: any;
-
+	@Input() settings: any;
 	private isShowColors: boolean;
 	private isShowFonts: boolean;
 	private editableTextComponentCurrent: EditableTextComponent;
@@ -105,7 +105,6 @@ export class EditTextComponent implements OnInit {
 	}
 
 	onCloseOptions() {
-
 		//clear all
 		this.isShowColors = false;
 		this.isShowFonts = false;

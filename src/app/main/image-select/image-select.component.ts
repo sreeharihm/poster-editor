@@ -17,7 +17,17 @@ export class ImageSelectComponent {
 	onIsSelectedChange($uniqueId) {
 
 		//update settings
+		
+		this.imageSettings.images[this.imageSettings.selectedImageUniqueId].models.forEach(e => {
+			e.isSelected=false
+		});
+		this.imageSettings.images[this.imageSettings.selectedImageUniqueId].layers.forEach(e => {
+			e.selectedFile =null,
+			e.isGraphicHidden =false
+		});
+		
 		this.imageSettings.selectedImageUniqueId = $uniqueId;
+		this.imageSettings.selectedModelUniqueId =-1;
 
 		//emit change
 		this.imageSettingsChange.emit(this.imageSettings);

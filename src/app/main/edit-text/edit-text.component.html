@@ -1,4 +1,4 @@
-<div class="edit-text-container shadow-dropped-down" *ngIf="textSettings.selectedModelUniqueId > -1">
+<div class="edit-text-container shadow-dropped-down" *ngIf="settings.selectedModelUniqueId > -1"> 
     <button class="ctrl-font pull-left" (mouseover)="onShowFontOptions()" (click)="onShowFontOptions()" [style.fontFamily]="textSettings.options.fonts[editableTextComponentCurrent.model.fontIndex].family">{{textSettings.options.fonts[editableTextComponentCurrent.model.fontIndex].name}}</button>
     <button class="pull-right" (mouseover)="onShowColorOptions()" (click)="onShowColorOptions()">
         <div class="color-tile" [style.backgroundColor]="textSettings.options.colors[editableTextComponentCurrent.model.colorIndex]"></div>

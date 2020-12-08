@@ -13,6 +13,7 @@ export class OverlayImageLayerComponent implements OnInit {
 
 	@Input() sizeSettings: any;
 	@Input() imageLayerSettings: any;
+	@Input() settings: any;
 
 	private isSelected: boolean = false;
 

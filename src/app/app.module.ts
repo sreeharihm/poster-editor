@@ -16,10 +16,17 @@ import { OverlayTextsComponent } from './main/overlay-texts/overlay-texts.compon
 import { SelectableDirective } from './shared/directives/selectable.directive';
 import { MoveClampedToParentDirective } from './shared/directives/move-clamped-to-parent.directive';
 import { EditableTextComponent } from './main/editable-text/editable-text.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ImageLayerComponent } from './main/image-layer/image-layer.component';
 import { OverlayImageLayerComponent } from './main/overlay-image-layer/overlay-image-layer.component';
+import { AppRoutingModule } from './app-routing.module';
+import { LoginComponent } from './login/login.component';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -39,12 +46,18 @@ import { OverlayImageLayerComponent } from './main/overlay-image-layer/overlay-i
     MoveClampedToParentDirective,
     EditableTextComponent,
     ImageLayerComponent,
-    OverlayImageLayerComponent
+    OverlayImageLayerComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule, 
+    AngularFireAuthModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

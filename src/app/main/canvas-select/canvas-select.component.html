@@ -1,7 +1,7 @@
-<div id="poster" class="overlays-container" style="zoom: 60%;">
+<div id="poster" class="overlays-container" style="zoom: {{sizeSettings.sizes[sizeSettings.selectedSizeIndex].zoom}}">
     <canvas #photoCanvas class="shadow" width="{{sizeSettings.sizes[sizeSettings.selectedSizeIndex].width}}" height="{{sizeSettings.sizes[sizeSettings.selectedSizeIndex].height}}" (click)="onClearOverlaysSelection()">
     </canvas>
     <app-overlay-logo [sizeSettings]="sizeSettings" [logoSettings]="logoSettings"></app-overlay-logo>
-    <app-overlay-texts [sizeSettings]="sizeSettings" [textSettings]="textSettings"></app-overlay-texts>
-    <app-overlay-image-layer [sizeSettings]="sizeSettings" [imageLayerSettings]="imageLayerSettings"></app-overlay-image-layer>
+    <app-overlay-texts [sizeSettings]="sizeSettings" [textSettings]="textSettings" [settings]="imageSettings"></app-overlay-texts>
+    <app-overlay-image-layer [sizeSettings]="sizeSettings" [imageLayerSettings]="imageLayerSettings" [settings]="imageSettings"></app-overlay-image-layer>
 </div>

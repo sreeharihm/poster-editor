@@ -1,20 +1,7 @@
 <div class="text-select-container">
-    <div class="inline-block text-center pointer" appSelectable (isSelectedChange)="onIsSelectedChange($event)">
-        <div class="btn text-type" [ngClass]="{ selected: selectableHeader && selectableHeader.isSelected }"><img class="svg-icon" src="assets/svg/check.svg"></div>
-        <p class="text-type-label text-center" [ngClass]="{ 'text-type-label-selected': selectableHeader && selectableHeader.isSelected }">Header</p>
+    <div class="inline-block text-center pointer" style="margin-left: 6px" *ngFor="let texts of settings.images[settings.selectedImageUniqueId].models; let i=index;" appSelectable (isSelectedChange)="onIsSelectedChange($event,i)">
+        <div class="btn text-type" [ngClass]="{ selected: texts.isSelected }"><img class="svg-icon" src="assets/svg/check.svg"></div>
+        <p class="text-type-label text-center" [ngClass]="{ 'text-type-label-selected': texts.isSelected }">{{texts.type}}</p>
+ 
     </div>
-    <div class="inline-block text-center pointer text-select-container-center-spacer" appSelectable (isSelectedChange)="onIsSelectedChange($event)">
-        <div class="btn text-type" [ngClass]="{ selected: selectableBody && selectableBody.isSelected }"><img class="svg-icon" src="assets/svg/check.svg"></div>
-        <p class="text-type-label text-center" [ngClass]="{ 'text-type-label-selected': selectableBody && selectableBody.isSelected }">Body</p>
-    </div>
-    <div class="inline-block text-center pointer" appSelectable (isSelectedChange)="onIsSelectedChange($event)">
-        <div class="btn text-type" [ngClass]="{ selected: selectableCaption && selectableCaption.isSelected }"><img class="svg-icon" src="assets/svg/check.svg"></div>
-        <p class="text-type-label text-center" [ngClass]="{ 'text-type-label-selected': selectableCaption && selectableCaption.isSelected }">Caption</p>
-    </div>
-</div>
-<hr>
-<div [ngClass]="{ disabled: !canAddQuotes }" class="quotes">
-    <span class="add-quote-label">Add Quotes</span>
-    <button type="button" class="btn btn-default btn-xs pull-right" (click)="onQuoteNext()" [disabled]="!canAddQuotes"><img class="svg-icon" src="assets/svg/arrow_forward.svg"></button>
-    <button type="button" class="btn btn-default btn-xs pull-right" (click)="onQuotePrev()" [disabled]="!canAddQuotes"><img class="svg-icon" src="assets/svg/arrow_back.svg"></button>
 </div>

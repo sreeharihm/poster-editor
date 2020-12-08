@@ -38,7 +38,6 @@ export class CanvasSelectComponent implements AfterViewInit {
 
 	// load image into canvas
 	onUpdateCanvas() {
-		debugger;
 		//new image
 		let image = new Image();
 		let sizeData = this.sizeSettings.sizes[this.sizeSettings.selectedSizeIndex];

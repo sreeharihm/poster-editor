@@ -31,7 +31,6 @@ export class EditableTextComponent  {
 	}
 
 	onDoubleClick($event) {
-
 		//update edit flag
 		this.isEditing = true;
 

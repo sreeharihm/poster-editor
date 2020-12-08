@@ -13,35 +13,41 @@ export class ImageLayerComponent {
   }
   	@Input() imageLayerSettings: any;
 	@Output() imageLayerSettingsChange: EventEmitter<any> = new EventEmitter();
+	@Input() settings: any;
 
-	onVisibilityToggle() {
+	onVisibilityToggle(index) {
+		
+		this.settings.images[this.settings.selectedImageUniqueId].layers[index].isGraphicHidden = !this.settings.images[this.settings.selectedImageUniqueId].layers[index].isGraphicHidden ;
 		this.imageLayerSettings.isGraphicHidden = !this.imageLayerSettings.isGraphicHidden;
 		this.imageLayerSettingsChange.emit(this.imageLayerSettings);
 	}
-	onRemove() {
+	onRemove(index) {
 		this.imageLayerSettings.selectedFile = null;
 		this.imageLayerSettings.isGraphicHidden = false;
+		
+		this.settings.images[this.settings.selectedImageUniqueId].layers[index].isGraphicHidden = false;		
+		this.settings.images[this.settings.selectedImageUniqueId].layers[index].selectedFile = null;
 		this.imageLayerSettingsChange.emit(this.imageLayerSettings);
 	}
-	onSelectFileChange($event) {		
+	onSelectFileChange($event, index) {		
 		//cancel check
 		let files = $event.srcElement.files;
 		if(files.length > 0) {
-			debugger;
 			//base64 encode file (TODO extract to a service)
 			let reader = new FileReader();
 			reader.onload = (e) => {
 				let url = (<FileReader>e.target).result;
 				let file = { url: url, name: 'Uploaded Image' };
-				debugger;
-
-				let img= new Image();
-				//img.src = url;
+				/* const img= new Image();
+				img.src = e.target.result as string;
 				img.onload = (e: any) => {
 					this.imageLayerSettings.height =e.path[0].height;
 					this.imageLayerSettings.width = e.path[0].width;
-				}
+				} */
 				this.imageLayerSettings.selectedFile = file;
+				this.settings.images[this.settings.selectedImageUniqueId].layers[index].selectedFile = file;
+				this.settings.selectedLayerUniqueId = index;
+				debugger;
 				this.imageLayerSettingsChange.emit(this.imageLayerSettings);
 			};
 			reader.readAsDataURL($event.srcElement.files[0]);

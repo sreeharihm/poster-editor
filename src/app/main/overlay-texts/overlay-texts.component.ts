@@ -15,6 +15,8 @@ export class OverlayTextsComponent implements OnInit {
 
 	@Input() sizeSettings: any;
 	@Input() textSettings: any;
+	@Input() settings: any;
+	isSelected: boolean;
 
 	constructor(private editSettingsService: EditSettingsService) { }
 
@@ -35,7 +37,7 @@ export class OverlayTextsComponent implements OnInit {
 		if(isClear) {
 
 			//update selectedModel helper
-			this.textSettings.selectedModelUniqueId = -1;
+			this.settings.selectedModelUniqueId = -1;
 
 			//reset controls
 			this.editableTexts.map(item => item.reset());
@@ -43,15 +45,14 @@ export class OverlayTextsComponent implements OnInit {
 	}
 
 	onSelected(index) {
-
 		//only one selected overlay at a time
 		this.editSettingsService.updateOverlays(true);
 
 		//update selectedModel helper
-		this.textSettings.selectedModelUniqueId = index;
-
+		this.settings.selectedModelUniqueId = index;
 		//update edit text overlay
-		let editableTextComponent = this.editableTexts.filter(item => this.textSettings.selectedModelUniqueId === item.model.uniqueId);
+		this.isSelected = index > -1;		
+		let editableTextComponent = this.editableTexts.filter(item => this.settings.selectedModelUniqueId === item.model.uniqueId);
 		if(editableTextComponent.length === 1) {
 			this.editSettingsService.updateEditText(editableTextComponent[0]);
 		}
